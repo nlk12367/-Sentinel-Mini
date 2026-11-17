@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sentinel Mini｜網站設定檢查</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside><a class="brand" href="/">S<span>Sentinel<small>MINI / PYTHON EDITION</small></span></a><div class="nav active">◈　檢查工作台</div><div class="side-label">最近的任務</div><div id="history"></div><footer><span class="dot"></span> 本機工作空間<br><small>資料保存在你的電腦</small></footer></aside>
+<main>
+<header><div>工作空間 <span>/</span> 網站設定檢查</div><div class="local">● LOCAL</div></header>
+<section class="intro"><div class="eyebrow">PLAN. EXECUTE. VERIFY.</div><h1>從一個目標，到可重現的證據。</h1><p>讓規劃、工具執行與獨立確認，連成一條清楚的檢查流程。</p></section>
+<section class="panel setup"><div class="section-title"><h2>建立檢查任務</h2><span>01 / SETUP</span></div>
+<form id="form"><div class="inputs"><label>目標網站<input id="target" type="url" required placeholder="https://your-authorized-site.example/" maxlength="2048"></label><label>檢查目標<input id="goal" required maxlength="1000" value="檢查網站安全標頭、TLS 與 Cookie 設定"></label></div>
+<div class="settings"><label>執行模式<select id="mode"><option value="codex">Codex AI · 沿用本機登入</option><option value="rules">規則模式 · 免模型示範</option><option value="compatible">其他 AI · Compatible API</option></select></label><button type="button" class="secondary" id="demo">填入本機測試網站 ↗</button></div>
+<div id="model-info" class="hint">正在讀取模型設定…</div>
+<div class="form-bottom"><label class="checkbox"><input id="authorized" type="checkbox" required> 我擁有此網站，或已取得檢查授權</label><button class="primary" id="start" type="submit">開始檢查 <span>→</span></button></div><p id="error" role="alert"></p></form></section>
+<section class="flow" aria-label="流程狀態"><div class="step" data-phase="planning"><b>01</b><div><strong>規劃</strong><small>拆分檢查任務</small></div><span>→</span></div><div class="step" data-phase="executing"><b>02</b><div><strong>執行</strong><small>工具並行收集證據</small></div><span>→</span></div><div class="step" data-phase="verifying"><b>03</b><div><strong>確認</strong><small>獨立請求重測</small></div><span>✓</span></div></section>
+<div class="workspace"><section class="panel"><div class="section-title"><h2>執行工作區</h2><span id="run-state">等待任務</span></div><div id="tasks" class="task-list"><div class="empty">建立第一個任務<br><small>先試試本機網站，觀察從發現到確認的完整過程。</small></div></div><div class="log-title">ACTIVITY / 執行紀錄</div><ol id="events" aria-live="polite"><li class="hint">尚無執行紀錄</li></ol></section>
+<section class="panel results"><div class="section-title"><h2>確認結果</h2><span id="finding-count">—</span></div><p id="summary" class="hint">結果會連結至實際請求與重測證據。</p><div id="findings"></div><div id="warnings" role="status"></div><p id="ai-summary"></p><div class="exports"><button id="json" class="secondary" disabled>匯出 JSON ↓</button><button id="md" class="secondary" disabled>匯出報告 ↓</button></div></section></div>
+<section class="panel evidence"><div class="section-title"><h2>證據資料</h2><span>REQUESTS & RESPONSES</span></div><div id="evidence"><p class="hint">HTTP 標頭、內容雜湊與 TLS 子程序輸出會顯示在這裡。</p></div></section>
+<p class="footnote">僅檢查指定頁面的設定；confirmed 表示設定觀察可重現，不表示已證明可利用漏洞。規則模式不會呼叫 AI。</p>
+</main></body></html>
